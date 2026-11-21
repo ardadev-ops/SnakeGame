@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#05080c">
+    <meta name="description" content="Snake als Java-Webapplikation.">
+    <title>Snake — Java Web Edition</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 24h12a5 5 0 0 0 0-10H10a4 4 0 0 1 0-8h8"/>
+                    <circle cx="25" cy="24" r="2.4" fill="currentColor" stroke="none"/>
+                </svg>
+            </span>
+            <div class="brand-text">
+                <span class="brand-title">Snake</span>
+                <span class="brand-sub">Java Web Edition</span>
+            </div>
+        </div>
+
+        <div class="stats" aria-live="polite">
+            <div class="stat">
+                <span class="stat-label">Punkte</span>
+                <span class="stat-value" id="score">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Rekord</span>
+                <span class="stat-value" id="best">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Level</span>
+                <span class="stat-value" id="level">1</span>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="icon-button" id="sound" type="button" aria-label="Ton ausschalten" title="Ton ausschalten">🔊</button>
+            <button class="ghost-button" id="pause" type="button" disabled>Pause</button>
+        </div>
+    </header>
+
+    <main class="stage">
+        <div class="board-wrap">
+            <canvas id="board" width="690" height="690" aria-label="Snake-Spielfeld">Dein Browser unterstützt kein Canvas.</canvas>
+
+            <div class="overlay" id="overlay">
+                <div class="overlay-card">
+                    <p class="eyebrow">Server-side Java</p>
+                    <h1 id="overlay-title">Snake</h1>
+                    <p class="overlay-text" id="overlay-text">Sammle Äpfel, weiche dir selbst aus — und werd immer schneller.</p>
+                    <button class="primary-button" id="primary" type="button">Spiel starten</button>
+                    <p class="hint">Pfeiltasten oder WASD · Leertaste pausiert · R startet neu</p>
+                </div>
+            </div>
+
+            <div class="connection" id="connection" role="status"></div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="dpad" id="dpad" aria-label="Richtungsteuerung">
+            <button type="button" class="dpad-button dpad-up" data-dir="UP" aria-label="Nach oben">▲</button>
+            <button type="button" class="dpad-button dpad-left" data-dir="LEFT" aria-label="Nach links">◀</button>
+            <button type="button" class="dpad-button dpad-down" data-dir="DOWN" aria-label="Nach unten">▼</button>
+            <button type="button" class="dpad-button dpad-right" data-dir="RIGHT" aria-label="Nach rechts">▶</button>
+        </div>
+    </footer>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
